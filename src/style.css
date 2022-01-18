@@ -9,6 +9,7 @@ body {
   border-radius: 20px;
 }
 
-.input {
+.input,
+.count {
   max-width: 23rem;
 }
