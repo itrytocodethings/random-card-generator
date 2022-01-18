@@ -7,12 +7,23 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   //write your code here
+  generateCard();
+};
+
+let btn = document.querySelector("#genCardBtn");
+btn.addEventListener("click", e => {
+  let cardWidth = document.querySelector("#cardWidthInput").value;
+  generateCard(cardWidth);
+});
+
+function generateCard(width = "23") {
+  let cardElement = document.querySelector(".card");
   let cardNum = getRandomIntInclusive(2, 10);
   let randomSuit = getRandomIntInclusive(1, 4);
-  let cardElement = document.querySelector(".card");
   let suitIcons = document.querySelectorAll(".suit-icon");
   let cardNumElement = document.querySelector(".card-num");
 
+  cardElement.style.maxWidth = `${width}rem`;
   cardNumElement.innerHTML = cardNum;
 
   if (randomSuit == 1) {
@@ -24,17 +35,26 @@ window.onload = function() {
   }
   if (randomSuit == 2) {
     randomSuit = "diamonds";
-    suitIcons.forEach(element => (element.innerHTML = "♦"));
+    suitIcons.forEach(element => {
+      element.innerHTML = "♦";
+      element.style.color = "black";
+    });
   }
   if (randomSuit == 3) {
     randomSuit = "spade";
-    suitIcons.forEach(element => (element.innerHTML = "♠"));
+    suitIcons.forEach(element => {
+      element.innerHTML = "♠";
+      element.style.color = "black";
+    });
   }
   if (randomSuit == 4) {
     randomSuit = "clubs";
-    suitIcons.forEach(element => (element.innerHTML = "♣"));
+    suitIcons.forEach(element => {
+      element.innerHTML = "♣";
+      element.style.color = "black";
+    });
   }
-};
+}
 
 function getRandomIntInclusive(min, max) {
   min = Math.ceil(min);

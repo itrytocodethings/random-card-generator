@@ -7,10 +7,27 @@
     <title>Random Card Generator</title>
   </head>
   <body>
-    <div class="card w-50 mt-3 m-auto align-items-center">
-      <div class="suit-icon align-self-start"></div>
-      <div class="card-num"></div>
-      <div class="suit-icon align-self-end"></div>
+    <div class="container">
+      <div class="input mt-3 m-auto d-flex justify-content-between">
+        <div class="form-group d-flex flex-column">
+          <input
+            type="text"
+            name="cardWidthInput"
+            id="cardWidthInput"
+            placeholder="width (in rem's)"
+          />
+        </div>
+        <div class="form-group align-self-end">
+          <button class="btn btn-secondary" id="genCardBtn">
+            Generate Card
+          </button>
+        </div>
+      </div>
+      <div class="card mt-3 m-auto align-items-center">
+        <div class="suit-icon align-self-start"></div>
+        <div class="card-num"></div>
+        <div class="suit-icon align-self-end"></div>
+      </div>
     </div>
   </body>
 </html>
