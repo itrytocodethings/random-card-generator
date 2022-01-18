@@ -4,7 +4,15 @@ import "./style.css";
 
 import "./assets/img/rigo-baby.jpg";
 import "./assets/img/4geeks.ico";
+let countElement = document.querySelector(".count");
+let count = 10;
 let counter = setInterval(generateCard, 10000);
+let countdown = setInterval(() => {
+  count--;
+  countElement.innerHTML = `Generating card in: ${count} seconds`;
+  if (count == 0) count = 10;
+}, 1000);
+
 window.onload = function() {
   //write your code here
   generateCard();
@@ -13,6 +21,8 @@ window.onload = function() {
 let btn = document.querySelector("#genCardBtn");
 btn.addEventListener("click", e => {
   clearInterval(counter);
+  clearInterval(countdown);
+  countElement.style.display = "none";
   let cardWidth = document.querySelector("#cardWidthInput").value;
   generateCard(cardWidth);
 });
