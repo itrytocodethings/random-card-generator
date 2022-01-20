@@ -7,18 +7,25 @@ import "./assets/img/4geeks.ico";
 
 window.onload = function() {
   let count = 10;
-  let counter = setInterval(generateCard, 10000);
+  let counter = setInterval(generateCard, 10000); //called every 10 seconds
   let countdown = setInterval(() => {
     count--;
     document.querySelector(".count").innerHTML = `${count}`;
     if (count == 0) count = 10;
   }, 1000);
-  generateCard();
+
+  generateCard(); //initial generateCard call
 
   let btn = document.querySelector("#genCardBtn");
+  /* 
+    Generate card on button click and clear the counter and 
+    countdown intervals. When the button is used to generate a
+    card, cards will no longer generate ever 10 seconds. Will
+    also set display to 'none' for the counter DOM element.
+  */
   btn.addEventListener("click", e => {
-    clearInterval(counter);
-    clearInterval(countdown);
+    clearInterval(counter); //clear counter
+    clearInterval(countdown); //clear countdown
     document.querySelector(".counter").style.display = "none";
     let cardWidth = document.querySelector("#cardWidthInput").value;
     if (!cardWidth || !Number.isInteger(parseInt(cardWidth))) cardWidth = "23";
