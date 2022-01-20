@@ -13,3 +13,7 @@ body {
 .count {
   max-width: 23rem;
 }
+
+.suit-flip {
+  transform: rotate(180deg);
+}

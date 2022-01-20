@@ -29,13 +29,14 @@ window.onload = function() {
 
   function generateCard(width = "23") {
     let cardElement = document.querySelector(".card");
-    let cardNum = getRandomIntInclusive(2, 10);
+    let cardNum = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "A", "J", "K", "Q"];
     let randomSuit = getRandomIntInclusive(1, 4);
     let suitIcons = document.querySelectorAll(".suit-icon");
     let cardNumElement = document.querySelector(".card-num");
 
     cardElement.style.maxWidth = `${width}rem`;
-    cardNumElement.innerHTML = cardNum;
+    cardNumElement.innerHTML =
+      cardNum[getRandomIntInclusive(0, cardNum.length - 1)];
 
     if (randomSuit == 1) {
       randomSuit = "hearts";
@@ -48,7 +49,7 @@ window.onload = function() {
       randomSuit = "diamonds";
       suitIcons.forEach(element => {
         element.innerHTML = "♦";
-        element.style.color = "black";
+        element.style.color = "red";
       });
     }
     if (randomSuit == 3) {
