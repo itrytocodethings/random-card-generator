@@ -20,8 +20,9 @@ window.onload = function() {
   /* 
     Generate card on button click and clear the counter and 
     countdown intervals. When the button is used to generate a
-    card, cards will no longer generate ever 10 seconds. Will
-    also set display to 'none' for the counter DOM element.
+    card, cards will no longer generate every 10 seconds (until 
+    page is refreshed). Will also set display to 'none' for t
+    he counter DOM element.
   */
   btn.addEventListener("click", e => {
     clearInterval(counter); //clear counter
