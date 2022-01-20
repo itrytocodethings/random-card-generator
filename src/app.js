@@ -36,38 +36,39 @@ window.onload = function() {
   function generateCard(width = "23") {
     let cardArr = [2, 3, 4, 5, 6, 7, 8, 9, 10, "A", "J", "K", "Q"];
     let card = getRandomIntInclusive(0, cardArr.length - 1);
-    let suitArr = ["hearts", "spades", "clubs", "diamonds"];
+    let suitArr = ["&#9829;", "&#9827;", "&#9824;", "&#9830;"];
+    console.log(suitArr[0]);
     let randomSuit = suitArr[getRandomIntInclusive(0, suitArr.length - 1)];
     let suitIcons = document.querySelectorAll(".suit-icon");
 
     document.querySelector(".card").style.maxWidth = `${width}rem`;
     document.querySelector(".card-num").innerHTML = cardArr[card];
 
-    if (randomSuit == "hearts") {
+    if (randomSuit == "&#9829;") {
       suitIcons.forEach(element => {
-        element.innerHTML = "♥";
+        element.innerHTML = "&#9829;";
       });
     }
 
-    if (randomSuit == "clubs") {
+    if (randomSuit == "&#9827;") {
       suitIcons.forEach(element => {
-        element.innerHTML = "♣";
+        element.innerHTML = "&#9827;";
       });
     }
 
-    if (randomSuit == "diamonds") {
+    if (randomSuit == "&#9830;") {
       suitIcons.forEach(element => {
-        element.innerHTML = "♦";
+        element.innerHTML = "&#9830;";
       });
     }
 
-    if (randomSuit == "spades") {
+    if (randomSuit == "&#9824;") {
       suitIcons.forEach(element => {
-        element.innerHTML = "♠";
+        element.innerHTML = "&#9824;";
       });
     }
 
-    if (randomSuit == "diamonds" || randomSuit == "hearts") {
+    if (randomSuit == "&#9830;" || randomSuit == "&#9829;") {
       suitIcons.forEach(element => (element.style.color = "red"));
     } else {
       suitIcons.forEach(element => (element.style.color = "black"));
