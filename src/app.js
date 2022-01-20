@@ -29,8 +29,9 @@ window.onload = function() {
 
   function generateCard(width = "23") {
     let cardElement = document.querySelector(".card");
-    let cardArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "A", "J", "K", "Q"];
-    let randomSuit = getRandomIntInclusive(1, 4);
+    let cardArr = [2, 3, 4, 5, 6, 7, 8, 9, 10, "A", "J", "K", "Q"];
+    let suitArr = ["hearts", "spades", "clubs", "diamonds"];
+    let randomSuit = suitArr[getRandomIntInclusive(0, suitArr.length - 1)];
     let suitIcons = document.querySelectorAll(".suit-icon");
     let cardNumElement = document.querySelector(".card-num");
     let card = getRandomIntInclusive(0, cardArr.length - 1);
@@ -38,33 +39,34 @@ window.onload = function() {
     cardElement.style.maxWidth = `${width}rem`;
     cardNumElement.innerHTML = cardArr[card];
 
-    if (randomSuit == 1) {
-      randomSuit = "hearts";
+    if (randomSuit == "hearts") {
       suitIcons.forEach(element => {
         element.innerHTML = "♥";
-        element.style.color = "red";
       });
     }
-    if (randomSuit == 2) {
-      randomSuit = "diamonds";
-      suitIcons.forEach(element => {
-        element.innerHTML = "♦";
-        element.style.color = "red";
-      });
-    }
-    if (randomSuit == 3) {
-      randomSuit = "spade";
-      suitIcons.forEach(element => {
-        element.innerHTML = "♠";
-        element.style.color = "black";
-      });
-    }
-    if (randomSuit == 4) {
-      randomSuit = "clubs";
+
+    if (randomSuit == "clubs") {
       suitIcons.forEach(element => {
         element.innerHTML = "♣";
-        element.style.color = "black";
       });
+    }
+
+    if (randomSuit == "diamonds") {
+      suitIcons.forEach(element => {
+        element.innerHTML = "♦";
+      });
+    }
+
+    if (randomSuit == "spades") {
+      suitIcons.forEach(element => {
+        element.innerHTML = "♠";
+      });
+    }
+
+    if (randomSuit == "diamonds" || randomSuit == "hearts") {
+      suitIcons.forEach(element => (element.style.color = "red"));
+    } else {
+      suitIcons.forEach(element => (element.style.color = "black"));
     }
   }
 
