@@ -29,14 +29,14 @@ window.onload = function() {
 
   function generateCard(width = "23") {
     let cardElement = document.querySelector(".card");
-    let cardNum = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "A", "J", "K", "Q"];
+    let cardArr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, "A", "J", "K", "Q"];
     let randomSuit = getRandomIntInclusive(1, 4);
     let suitIcons = document.querySelectorAll(".suit-icon");
     let cardNumElement = document.querySelector(".card-num");
+    let card = getRandomIntInclusive(0, cardArr.length - 1);
 
     cardElement.style.maxWidth = `${width}rem`;
-    cardNumElement.innerHTML =
-      cardNum[getRandomIntInclusive(0, cardNum.length - 1)];
+    cardNumElement.innerHTML = cardArr[card];
 
     if (randomSuit == 1) {
       randomSuit = "hearts";
