@@ -29,7 +29,12 @@ window.onload = function() {
     clearInterval(countdown); //clear countdown
     document.querySelector(".counter").style.display = "none";
     let cardWidth = document.querySelector("#cardWidthInput").value;
-    if (!cardWidth || !Number.isInteger(parseInt(cardWidth))) cardWidth = "23";
+    if (
+      !cardWidth ||
+      !Number.isInteger(parseInt(cardWidth)) ||
+      cardWidth == "0"
+    )
+      cardWidth = "23";
     generateCard(cardWidth);
   });
 
@@ -37,7 +42,6 @@ window.onload = function() {
     let cardArr = [2, 3, 4, 5, 6, 7, 8, 9, 10, "A", "J", "K", "Q"];
     let card = getRandomIntInclusive(0, cardArr.length - 1);
     let suitArr = ["&#9829;", "&#9827;", "&#9824;", "&#9830;"];
-    console.log(suitArr[0]);
     let randomSuit = suitArr[getRandomIntInclusive(0, suitArr.length - 1)];
     let suitIcons = document.querySelectorAll(".suit-icon");
 
